@@ -1,0 +1,421 @@
+current directory: /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ext/nokogiri
+/Users/TLuu/.rbenv/versions/2.0.0-p247/bin/ruby -r ./siteconf20160206-4563-r4l8my.rb extconf.rb
+checking if the C compiler accepts ... yes
+checking if the C compiler accepts -Wno-error=unused-command-line-argument-hard-error-in-future... no
+Building nokogiri using packaged libraries.
+Using mini_portile version 2.0.0
+checking for iconv.h... yes
+checking for gzdopen() in -lz... yes
+checking for iconv... yes
+************************************************************************
+IMPORTANT NOTICE:
+
+Building Nokogiri with a packaged version of libxml2-2.9.2
+with the following patches applied:
+	- 0001-Revert-Missing-initialization-for-the-catalog-module.patch
+	- 0002-Fix-missing-entities-after-CVE-2014-3660-fix.patch
+	- 0003-Stop-parsing-on-entities-boundaries-errors.patch
+	- 0004-Cleanup-conditional-section-error-handling.patch
+	- 0005-CVE-2015-1819-Enforce-the-reader-to-run-in-constant-.patch
+	- 0006-Another-variation-of-overflow-in-Conditional-section.patch
+	- 0007-Fix-an-error-in-previous-Conditional-section-patch.patch
+	- 0008-CVE-2015-8035-Fix-XZ-compression-support-loop.patch
+	- 0009-Updated-config.guess.patch
+	- 0010-Fix-parsering-short-unclosed-comment-uninitialized-access.patch
+	- 0011-Avoid-extra-processing-of-MarkupDecl-when-EOF.patch
+	- 0012-Avoid-processing-entities-after-encoding-conversion-.patch
+	- 0013-CVE-2015-7497-Avoid-an-heap-buffer-overflow-in-xmlDi.patch
+	- 0014-CVE-2015-5312-Another-entity-expansion-issue.patch
+	- 0015-Add-xmlHaltParser-to-stop-the-parser.patch
+	- 0016-Detect-incoherency-on-GROW.patch
+	- 0017-CVE-2015-7500-Fix-memory-access-error-due-to-incorre.patch
+	- 0018-CVE-2015-8242-Buffer-overead-with-HTML-parser-in-pus.patch
+	- 0019-Do-not-print-error-context-when-there-is-none.patch
+	- 0020-xmlStopParser-reset-errNo.patch
+	- 0021-Reuse-xmlHaltParser-where-it-makes-sense.patch
+
+Team Nokogiri will keep on doing their best to provide security
+updates in a timely manner, but if this is a concern for you and want
+to use the system library instead; abort this installation process and
+reinstall nokogiri as follows:
+
+    gem install nokogiri -- --use-system-libraries
+        [--with-xml2-config=/path/to/xml2-config]
+        [--with-xslt-config=/path/to/xslt-config]
+
+If you are using Bundler, tell it to use the option:
+
+    bundle config build.nokogiri --use-system-libraries
+    bundle install
+
+Note, however, that nokogiri is not fully compatible with arbitrary
+versions of libxml2 provided by OS/package vendors.
+************************************************************************
+Extracting libxml2-2.9.2.tar.gz into tmp/x86_64-apple-darwin12.4.0/ports/libxml2/2.9.2... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0001-Revert-Missing-initialization-for-the-catalog-module.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0002-Fix-missing-entities-after-CVE-2014-3660-fix.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0003-Stop-parsing-on-entities-boundaries-errors.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0004-Cleanup-conditional-section-error-handling.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0005-CVE-2015-1819-Enforce-the-reader-to-run-in-constant-.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0006-Another-variation-of-overflow-in-Conditional-section.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0007-Fix-an-error-in-previous-Conditional-section-patch.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0008-CVE-2015-8035-Fix-XZ-compression-support-loop.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0009-Updated-config.guess.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0010-Fix-parsering-short-unclosed-comment-uninitialized-access.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0011-Avoid-extra-processing-of-MarkupDecl-when-EOF.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0012-Avoid-processing-entities-after-encoding-conversion-.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0013-CVE-2015-7497-Avoid-an-heap-buffer-overflow-in-xmlDi.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0014-CVE-2015-5312-Another-entity-expansion-issue.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0015-Add-xmlHaltParser-to-stop-the-parser.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0016-Detect-incoherency-on-GROW.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0017-CVE-2015-7500-Fix-memory-access-error-due-to-incorre.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0018-CVE-2015-8242-Buffer-overead-with-HTML-parser-in-pus.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0019-Do-not-print-error-context-when-there-is-none.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0020-xmlStopParser-reset-errNo.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxml2/0021-Reuse-xmlHaltParser-where-it-makes-sense.patch... OK
+Running 'configure' for libxml2 2.9.2... OK
+Running 'compile' for libxml2 2.9.2... OK
+Running 'install' for libxml2 2.9.2... OK
+Activating libxml2 2.9.2 (from /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2)...
+************************************************************************
+IMPORTANT NOTICE:
+
+Building Nokogiri with a packaged version of libxslt-1.1.28
+with the following patches applied:
+	- 0001-Adding-doc-update-related-to-1.1.28.patch
+	- 0002-Fix-a-couple-of-places-where-f-printf-parameters-wer.patch
+	- 0003-Initialize-pseudo-random-number-generator-with-curre.patch
+	- 0004-EXSLT-function-str-replace-is-broken-as-is.patch
+	- 0006-Fix-str-padding-to-work-with-UTF-8-strings.patch
+	- 0007-Separate-function-for-predicate-matching-in-patterns.patch
+	- 0008-Fix-direct-pattern-matching.patch
+	- 0009-Fix-certain-patterns-with-predicates.patch
+	- 0010-Fix-handling-of-UTF-8-strings-in-EXSLT-crypto-module.patch
+	- 0013-Memory-leak-in-xsltCompileIdKeyPattern-error-path.patch
+	- 0014-Fix-for-bug-436589.patch
+	- 0015-Fix-mkdir-for-mingw.patch
+	- 0016-Fix-for-type-confusion-in-preprocessing-attributes.patch
+	- 0017-Updated-config.guess.patch
+
+Team Nokogiri will keep on doing their best to provide security
+updates in a timely manner, but if this is a concern for you and want
+to use the system library instead; abort this installation process and
+reinstall nokogiri as follows:
+
+    gem install nokogiri -- --use-system-libraries
+        [--with-xml2-config=/path/to/xml2-config]
+        [--with-xslt-config=/path/to/xslt-config]
+
+If you are using Bundler, tell it to use the option:
+
+    bundle config build.nokogiri --use-system-libraries
+    bundle install
+************************************************************************
+Extracting libxslt-1.1.28.tar.gz into tmp/x86_64-apple-darwin12.4.0/ports/libxslt/1.1.28... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxslt/0001-Adding-doc-update-related-to-1.1.28.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxslt/0002-Fix-a-couple-of-places-where-f-printf-parameters-wer.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxslt/0003-Initialize-pseudo-random-number-generator-with-curre.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxslt/0004-EXSLT-function-str-replace-is-broken-as-is.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxslt/0006-Fix-str-padding-to-work-with-UTF-8-strings.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxslt/0007-Separate-function-for-predicate-matching-in-patterns.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxslt/0008-Fix-direct-pattern-matching.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxslt/0009-Fix-certain-patterns-with-predicates.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxslt/0010-Fix-handling-of-UTF-8-strings-in-EXSLT-crypto-module.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxslt/0013-Memory-leak-in-xsltCompileIdKeyPattern-error-path.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxslt/0014-Fix-for-bug-436589.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxslt/0015-Fix-mkdir-for-mingw.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxslt/0016-Fix-for-type-confusion-in-preprocessing-attributes.patch... OK
+Running git apply with /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/patches/libxslt/0017-Updated-config.guess.patch... OK
+Running 'configure' for libxslt 1.1.28... OK
+Running 'compile' for libxslt 1.1.28... OK
+Running 'install' for libxslt 1.1.28... OK
+Activating libxslt 1.1.28 (from /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28)...
+checking for main() in -llzma... yes
+checking for xmlParseDoc() in libxml/parser.h... yes
+checking for xsltParseStylesheetDoc() in libxslt/xslt.h... yes
+checking for exsltFuncRegister() in libexslt/exslt.h... yes
+checking for xmlHasFeature()... yes
+checking for xmlFirstElementChild()... yes
+checking for xmlRelaxNGSetParserStructuredErrors()... yes
+checking for xmlRelaxNGSetParserStructuredErrors()... yes
+checking for xmlRelaxNGSetValidStructuredErrors()... yes
+checking for xmlSchemaSetValidStructuredErrors()... yes
+checking for xmlSchemaSetParserStructuredErrors()... yes
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/extensions/x86_64-darwin-12/2.0.0-static/nokogiri-1.6.7.2/mkmf.log
+
+current directory: /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ext/nokogiri
+make "DESTDIR=" clean
+
+current directory: /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ext/nokogiri
+make "DESTDIR="
+compiling html_document.c
+couldn't understand kern.osversion `15.3.0'
+compiling html_element_description.c
+couldn't understand kern.osversion `15.3.0'
+html_element_description.c: In function ‘get_description’:
+html_element_description.c:252: warning: cast discards qualifiers from pointer target type
+compiling html_entity_lookup.c
+couldn't understand kern.osversion `15.3.0'
+compiling html_sax_parser_context.c
+couldn't understand kern.osversion `15.3.0'
+compiling html_sax_push_parser.c
+couldn't understand kern.osversion `15.3.0'
+compiling nokogiri.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_attr.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_attribute_decl.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_cdata.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_comment.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_document.c
+couldn't understand kern.osversion `15.3.0'
+xml_document.c: In function ‘set_encoding’:
+xml_document.c:182: warning: cast discards qualifiers from pointer target type
+xml_document.c: In function ‘canonicalize’:
+xml_document.c:537: warning: cast discards qualifiers from pointer target type
+xml_document.c: In function ‘Nokogiri_wrap_xml_document’:
+xml_document.c:601: warning: passing argument 1 of ‘st_init_numtable_with_size’ with different width due to prototype
+compiling xml_document_fragment.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_dtd.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_element_content.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_element_decl.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_encoding_handler.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_entity_decl.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_entity_reference.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_io.c
+couldn't understand kern.osversion `15.3.0'
+xml_io.c: In function ‘io_read_callback’:
+xml_io.c:20: warning: passing argument 4 of ‘rb_rescue’ with different width due to prototype
+xml_io.c: In function ‘io_write_callback’:
+xml_io.c:46: warning: passing argument 4 of ‘rb_rescue’ with different width due to prototype
+compiling xml_libxml2_hacks.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_namespace.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_node.c
+couldn't understand kern.osversion `15.3.0'
+xml_node.c: In function ‘reparent_node_with’:
+xml_node.c:168: warning: enumeration value ‘XML_ATTRIBUTE_NODE’ not handled in switch
+xml_node.c:168: warning: enumeration value ‘XML_ENTITY_NODE’ not handled in switch
+xml_node.c:168: warning: enumeration value ‘XML_DOCUMENT_NODE’ not handled in switch
+xml_node.c:168: warning: enumeration value ‘XML_DOCUMENT_FRAG_NODE’ not handled in switch
+xml_node.c:168: warning: enumeration value ‘XML_NOTATION_NODE’ not handled in switch
+xml_node.c:168: warning: enumeration value ‘XML_HTML_DOCUMENT_NODE’ not handled in switch
+xml_node.c:168: warning: enumeration value ‘XML_DTD_NODE’ not handled in switch
+xml_node.c:168: warning: enumeration value ‘XML_ELEMENT_DECL’ not handled in switch
+xml_node.c:168: warning: enumeration value ‘XML_ATTRIBUTE_DECL’ not handled in switch
+xml_node.c:168: warning: enumeration value ‘XML_ENTITY_DECL’ not handled in switch
+xml_node.c:168: warning: enumeration value ‘XML_NAMESPACE_DECL’ not handled in switch
+xml_node.c:168: warning: enumeration value ‘XML_XINCLUDE_START’ not handled in switch
+xml_node.c:168: warning: enumeration value ‘XML_XINCLUDE_END’ not handled in switch
+xml_node.c:168: warning: enumeration value ‘XML_DOCB_DOCUMENT_NODE’ not handled in switch
+xml_node.c:186: warning: enumeration value ‘XML_ATTRIBUTE_NODE’ not handled in switch
+xml_node.c:186: warning: enumeration value ‘XML_ENTITY_NODE’ not handled in switch
+xml_node.c:186: warning: enumeration value ‘XML_DOCUMENT_NODE’ not handled in switch
+xml_node.c:186: warning: enumeration value ‘XML_DOCUMENT_TYPE_NODE’ not handled in switch
+xml_node.c:186: warning: enumeration value ‘XML_DOCUMENT_FRAG_NODE’ not handled in switch
+xml_node.c:186: warning: enumeration value ‘XML_NOTATION_NODE’ not handled in switch
+xml_node.c:186: warning: enumeration value ‘XML_HTML_DOCUMENT_NODE’ not handled in switch
+xml_node.c:186: warning: enumeration value ‘XML_DTD_NODE’ not handled in switch
+xml_node.c:186: warning: enumeration value ‘XML_ELEMENT_DECL’ not handled in switch
+xml_node.c:186: warning: enumeration value ‘XML_ATTRIBUTE_DECL’ not handled in switch
+xml_node.c:186: warning: enumeration value ‘XML_ENTITY_DECL’ not handled in switch
+xml_node.c:186: warning: enumeration value ‘XML_NAMESPACE_DECL’ not handled in switch
+xml_node.c:186: warning: enumeration value ‘XML_XINCLUDE_START’ not handled in switch
+xml_node.c:186: warning: enumeration value ‘XML_XINCLUDE_END’ not handled in switch
+xml_node.c:186: warning: enumeration value ‘XML_DOCB_DOCUMENT_NODE’ not handled in switch
+xml_node.c:197: warning: enumeration value ‘XML_ELEMENT_NODE’ not handled in switch
+xml_node.c:197: warning: enumeration value ‘XML_ATTRIBUTE_NODE’ not handled in switch
+xml_node.c:197: warning: enumeration value ‘XML_CDATA_SECTION_NODE’ not handled in switch
+xml_node.c:197: warning: enumeration value ‘XML_ENTITY_NODE’ not handled in switch
+xml_node.c:197: warning: enumeration value ‘XML_PI_NODE’ not handled in switch
+xml_node.c:197: warning: enumeration value ‘XML_COMMENT_NODE’ not handled in switch
+xml_node.c:197: warning: enumeration value ‘XML_DOCUMENT_NODE’ not handled in switch
+xml_node.c:197: warning: enumeration value ‘XML_DOCUMENT_TYPE_NODE’ not handled in switch
+xml_node.c:197: warning: enumeration value ‘XML_DOCUMENT_FRAG_NODE’ not handled in switch
+xml_node.c:197: warning: enumeration value ‘XML_NOTATION_NODE’ not handled in switch
+xml_node.c:197: warning: enumeration value ‘XML_HTML_DOCUMENT_NODE’ not handled in switch
+xml_node.c:197: warning: enumeration value ‘XML_DTD_NODE’ not handled in switch
+xml_node.c:197: warning: enumeration value ‘XML_ELEMENT_DECL’ not handled in switch
+xml_node.c:197: warning: enumeration value ‘XML_ATTRIBUTE_DECL’ not handled in switch
+xml_node.c:197: warning: enumeration value ‘XML_ENTITY_DECL’ not handled in switch
+xml_node.c:197: warning: enumeration value ‘XML_NAMESPACE_DECL’ not handled in switch
+xml_node.c:197: warning: enumeration value ‘XML_XINCLUDE_START’ not handled in switch
+xml_node.c:197: warning: enumeration value ‘XML_XINCLUDE_END’ not handled in switch
+xml_node.c:197: warning: enumeration value ‘XML_DOCB_DOCUMENT_NODE’ not handled in switch
+xml_node.c:165: warning: enumeration value ‘XML_CDATA_SECTION_NODE’ not handled in switch
+xml_node.c:165: warning: enumeration value ‘XML_ENTITY_NODE’ not handled in switch
+xml_node.c:165: warning: enumeration value ‘XML_PI_NODE’ not handled in switch
+xml_node.c:165: warning: enumeration value ‘XML_COMMENT_NODE’ not handled in switch
+xml_node.c:165: warning: enumeration value ‘XML_DOCUMENT_TYPE_NODE’ not handled in switch
+xml_node.c:165: warning: enumeration value ‘XML_NOTATION_NODE’ not handled in switch
+xml_node.c:165: warning: enumeration value ‘XML_DTD_NODE’ not handled in switch
+xml_node.c:165: warning: enumeration value ‘XML_ELEMENT_DECL’ not handled in switch
+xml_node.c:165: warning: enumeration value ‘XML_ATTRIBUTE_DECL’ not handled in switch
+xml_node.c:165: warning: enumeration value ‘XML_ENTITY_DECL’ not handled in switch
+xml_node.c:165: warning: enumeration value ‘XML_NAMESPACE_DECL’ not handled in switch
+xml_node.c:165: warning: enumeration value ‘XML_XINCLUDE_START’ not handled in switch
+xml_node.c:165: warning: enumeration value ‘XML_XINCLUDE_END’ not handled in switch
+xml_node.c:165: warning: enumeration value ‘XML_DOCB_DOCUMENT_NODE’ not handled in switch
+compiling xml_node_set.c
+couldn't understand kern.osversion `15.3.0'
+xml_node_set.c: In function ‘dealloc_namespace’:
+xml_node_set.c:9: warning: cast discards qualifiers from pointer target type
+xml_node_set.c:11: warning: cast discards qualifiers from pointer target type
+xml_node_set.c: In function ‘deallocate’:
+xml_node_set.c:52: warning: passing argument 3 of ‘st_foreach’ with different width due to prototype
+compiling xml_processing_instruction.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_reader.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_relax_ng.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_sax_parser.c
+couldn't understand kern.osversion `15.3.0'
+xml_sax_parser.c: In function ‘start_element’:
+xml_sax_parser.c:69: warning: passing argument 1 of ‘rb_ary_new3’ with different width due to prototype
+compiling xml_sax_parser_context.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_sax_push_parser.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_schema.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_syntax_error.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_text.c
+couldn't understand kern.osversion `15.3.0'
+compiling xml_xpath_context.c
+couldn't understand kern.osversion `15.3.0'
+compiling xslt_stylesheet.c
+couldn't understand kern.osversion `15.3.0'
+xslt_stylesheet.c: In function ‘parse_stylesheet_doc’:
+xslt_stylesheet.c:72: warning: passing argument 2 of ‘rb_str_new’ with different width due to prototype
+xslt_stylesheet.c: In function ‘transform’:
+xslt_stylesheet.c:166: warning: passing argument 2 of ‘rb_str_new’ with different width due to prototype
+xslt_stylesheet.c: In function ‘initFunc’:
+xslt_stylesheet.c:212: warning: passing argument 2 of ‘rb_ary_entry’ with different width due to prototype
+linking shared-object nokogiri/nokogiri.bundle
+couldn't understand kern.osversion `15.3.0'
+ld: warning: ld: warning: object file (html_document.o) was built for newer OSX version (10.11) than being linked (10.4)object file (html_element_description.o) was built for newer OSX version (10.11) than being linked (10.4)
+
+ld: warning: object file (html_entity_lookup.o) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (html_sax_parser_context.o) was built for newer OSX version (10.11) than being linked (10.4)ld: warning: 
+ld: warning: object file (html_sax_push_parser.o) was built for newer OSX version (10.11) than being linked (10.4)object file (nokogiri.o) was built for newer OSX version (10.11) than being linked (10.4)
+
+ld: warning: object file (xml_attr.o) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (xml_cdata.o) was built for newer OSX version (10.11) than being linked (10.4)ld: warning: ld: warning: ld: warning: 
+object file (xml_attribute_decl.o) was built for newer OSX version (10.11) than being linked (10.4)object file (xml_comment.o) was built for newer OSX version (10.11) than being linked (10.4)object file (xml_document.o) was built for newer OSX version (10.11) than being linked (10.4)
+
+
+ld: warning: ld: warning: object file (xml_document_fragment.o) was built for newer OSX version (10.11) than being linked (10.4)object file (xml_dtd.o) was built for newer OSX version (10.11) than being linked (10.4)ld: warning: 
+ld: warning: 
+object file (xml_element_content.o) was built for newer OSX version (10.11) than being linked (10.4)object file (xml_element_decl.o) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: 
+ld: warning: ld: warning: object file (xml_encoding_handler.o) was built for newer OSX version (10.11) than being linked (10.4)ld: warning: object file (xml_entity_decl.o) was built for newer OSX version (10.11) than being linked (10.4)ld: warning: object file (xml_entity_reference.o) was built for newer OSX version (10.11) than being linked (10.4)
+object file (xml_io.o) was built for newer OSX version (10.11) than being linked (10.4)
+object file (xml_libxml2_hacks.o) was built for newer OSX version (10.11) than being linked (10.4)ld: warning: 
+ld: warning: 
+
+object file (xml_namespace.o) was built for newer OSX version (10.11) than being linked (10.4)ld: warning: ld: warning: object file (xml_node.o) was built for newer OSX version (10.11) than being linked (10.4)ld: warning: ld: warning: ld: warning: 
+ld: warning: object file (xml_node_set.o) was built for newer OSX version (10.11) than being linked (10.4)object file (xml_processing_instruction.o) was built for newer OSX version (10.11) than being linked (10.4)
+object file (xml_reader.o) was built for newer OSX version (10.11) than being linked (10.4)object file (xml_relax_ng.o) was built for newer OSX version (10.11) than being linked (10.4)object file (xml_sax_parser.o) was built for newer OSX version (10.11) than being linked (10.4)object file (xml_sax_parser_context.o) was built for newer OSX version (10.11) than being linked (10.4)
+
+ld: warning: 
+
+
+
+object file (xml_sax_push_parser.o) was built for newer OSX version (10.11) than being linked (10.4)ld: warning: ld: warning: ld: warning: 
+object file (xml_schema.o) was built for newer OSX version (10.11) than being linked (10.4)object file (xml_syntax_error.o) was built for newer OSX version (10.11) than being linked (10.4)object file (xml_text.o) was built for newer OSX version (10.11) than being linked (10.4)ld: warning: 
+
+ld: warning: 
+object file (xml_xpath_context.o) was built for newer OSX version (10.11) than being linked (10.4)object file (xslt_stylesheet.o) was built for newer OSX version (10.11) than being linked (10.4)
+
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(globals.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libexslt.a(exslt.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(HTMLparser.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(HTMLtree.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(xpath.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(tree.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(entities.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(encoding.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(xmlIO.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(c14n.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(xmlstring.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(parser.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(error.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(parserInternals.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(xmlreader.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(valid.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(hash.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(xmlmemory.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(relaxng.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(xmlsave.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(xmlschemas.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(xinclude.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libxslt.a(transform.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libxslt.a(xslt.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libxslt.a(extensions.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libxslt.a(xsltutils.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(threads.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(dict.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libexslt.a(common.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libexslt.a(date.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libexslt.a(dynamic.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libexslt.a(functions.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libexslt.a(math.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libexslt.a(saxon.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libexslt.a(sets.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libexslt.a(strings.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(SAX2.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(SAX.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(xmlregexp.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(buf.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(uri.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(catalog.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(chvalid.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(debugXML.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(pattern.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(list.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(nanoftp.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(nanohttp.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(xmlschemastypes.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(xpointer.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libxslt.a(keys.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libxslt.a(pattern.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libxslt.a(attributes.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libxslt.a(templates.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libxslt.a(security.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libxslt.a(attrvt.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libxslt.a(namespaces.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libxslt.a(extra.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libxslt.a(documents.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libxslt.a(variables.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libxslt.a(preproc.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libxslt.a(imports.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libxslt.a(xsltlocale.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libxslt.a(numbers.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxslt/1.1.28/lib/libxslt.a(functions.o)) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports/x86_64-apple-darwin12.4.0/libxml2/2.9.2/lib/libxml2.a(xmlunicode.o)) was built for newer OSX version (10.11) than being linked (10.4)
+Cleaning files only used during build.
+rm -rf /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ext/nokogiri/tmp/x86_64-apple-darwin12.4.0/ports
+rmdir -p /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ext/nokogiri/tmp/x86_64-apple-darwin12.4.0
+rm -rf /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ports
+
+current directory: /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/nokogiri-1.6.7.2/ext/nokogiri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 nokogiri.bundle ./.gem.20160206-4563-ebn8i6/nokogiri
+installing default nokogiri libraries

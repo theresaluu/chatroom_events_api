@@ -1,0 +1,14 @@
+current directory: /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/json-1.8.3/ext/json
+/Users/TLuu/.rbenv/versions/2.0.0-p247/bin/ruby -r ./siteconf20160206-4563-1579ckb.rb extconf.rb
+creating Makefile
+
+current directory: /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/json-1.8.3/ext/json
+make "DESTDIR=" clean
+
+current directory: /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/json-1.8.3/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/json-1.8.3/ext/json
+make "DESTDIR=" install
+installing default libraries

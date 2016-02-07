@@ -1,0 +1,48 @@
+current directory: /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/sqlite3-1.3.11/ext/sqlite3
+/Users/TLuu/.rbenv/versions/2.0.0-p247/bin/ruby -r ./siteconf20160206-4563-1iqzh1w.rb extconf.rb
+checking for sqlite3.h... yes
+checking for sqlite3_libversion_number() in -lsqlite3... yes
+checking for rb_proc_arity()... yes
+checking for rb_integer_pack()... no
+checking for sqlite3_initialize()... yes
+checking for sqlite3_backup_init()... yes
+checking for sqlite3_column_database_name()... no
+checking for sqlite3_enable_load_extension()... no
+checking for sqlite3_load_extension()... no
+checking for sqlite3_open_v2()... yes
+checking for sqlite3_prepare_v2()... yes
+checking for sqlite3_int64 in sqlite3.h... yes
+checking for sqlite3_uint64 in sqlite3.h... yes
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/extensions/x86_64-darwin-12/2.0.0-static/sqlite3-1.3.11/mkmf.log
+
+current directory: /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/sqlite3-1.3.11/ext/sqlite3
+make "DESTDIR=" clean
+
+current directory: /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/sqlite3-1.3.11/ext/sqlite3
+make "DESTDIR="
+compiling backup.c
+couldn't understand kern.osversion `15.3.0'
+compiling database.c
+couldn't understand kern.osversion `15.3.0'
+compiling exception.c
+couldn't understand kern.osversion `15.3.0'
+compiling sqlite3.c
+couldn't understand kern.osversion `15.3.0'
+compiling statement.c
+couldn't understand kern.osversion `15.3.0'
+linking shared-object sqlite3/sqlite3_native.bundle
+couldn't understand kern.osversion `15.3.0'
+ld: warning: ld: warning: object file (backup.o) was built for newer OSX version (10.11) than being linked (10.4)object file (database.o) was built for newer OSX version (10.11) than being linked (10.4)
+
+ld: warning: object file (exception.o) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (sqlite3.o) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (statement.o) was built for newer OSX version (10.11) than being linked (10.4)
+
+current directory: /Users/TLuu/Documents/Sides/tested_challenges/chatroom_api/vendor/bundle/gems/sqlite3-1.3.11/ext/sqlite3
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 sqlite3_native.bundle ./.gem.20160206-4563-bjs686/sqlite3
+installing default sqlite3_native libraries

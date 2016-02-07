@@ -1,0 +1,42 @@
+source 'https://rubygems.org'
+
+<%- if rails_gemfile_entry.is_a? String -%>
+<%= rails_gemfile_entry %>
+<%- else -%>
+<%- rails_gemfile_entry.each do |entry| -%>
+<%- if entry.respond_to?(:name) %>
+gem '<%= entry.name -%>', '<%= entry.version -%>'
+<%- end -%>
+<%- end -%>
+<%- end -%>
+
+gem 'rails-api'
+
+<%- if database_gemfile_entry.is_a? String -%>
+<%= database_gemfile_entry %>
+<%- else -%>
+gem 'spring', :group => :development
+
+<%- if database_gemfile_entry && database_gemfile_entry.respond_to?(:name) %>
+gem '<%= database_gemfile_entry.name -%>'
+<%- end -%>
+<%- end -%>
+
+
+<%= "gem 'jruby-openssl'\n" if defined?(JRUBY_VERSION) -%>
+<%= "gem 'json'\n" if RUBY_VERSION < "1.9.2" -%>
+
+# To use ActiveModel has_secure_password
+# gem 'bcrypt', '~> 3.1.7'
+
+# To use Jbuilder templates for JSON
+# gem 'jbuilder'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano', :group => :development
+
+# To use debugger
+# gem 'ruby-debug19', :require => 'ruby-debug'

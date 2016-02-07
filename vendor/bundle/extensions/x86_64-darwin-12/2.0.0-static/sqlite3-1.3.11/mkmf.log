@@ -1,0 +1,527 @@
+find_header: checking for sqlite3.h... -------------------- yes
+
+"gcc-4.2 -o conftest -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/TLuu/.rbenv/versions/2.0.0-p247/lib -L. -L'/Users/TLuu/.rbenv/versions/2.0.0-p247/lib'      -lruby-static  -lpthread -ldl -lobjc "
+couldn't understand kern.osversion `15.3.0'
+ld: warning: object file (/var/folders/bb/lg4kjhk5205ddvj06558rb0w0000gn/T//cc9YJ0CH.o) was built for newer OSX version (10.11) than being linked (10.4)
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"gcc-4.2 -E -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+couldn't understand kern.osversion `15.3.0'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sqlite3.h>
+/* end */
+
+--------------------
+
+find_library: checking for sqlite3_libversion_number() in -lsqlite3... -------------------- yes
+
+"gcc-4.2 -o conftest -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/TLuu/.rbenv/versions/2.0.0-p247/lib -L. -L'/Users/TLuu/.rbenv/versions/2.0.0-p247/lib'      -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+couldn't understand kern.osversion `15.3.0'
+conftest.c: In function ‘t’:
+conftest.c:5: error: ‘sqlite3_libversion_number’ undeclared (first use in this function)
+conftest.c:5: error: (Each undeclared identifier is reported only once
+conftest.c:5: error: for each function it appears in.)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_libversion_number; return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+"gcc-4.2 -o conftest -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/TLuu/.rbenv/versions/2.0.0-p247/lib -L. -L'/Users/TLuu/.rbenv/versions/2.0.0-p247/lib'      -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+couldn't understand kern.osversion `15.3.0'
+ld: warning: object file (/var/folders/bb/lg4kjhk5205ddvj06558rb0w0000gn/T//cckfO1Nh.o) was built for newer OSX version (10.11) than being linked (10.4)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { sqlite3_libversion_number(); return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+--------------------
+
+have_func: checking for rb_proc_arity()... -------------------- yes
+
+"gcc-4.2 -o conftest -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/TLuu/.rbenv/versions/2.0.0-p247/lib -L. -L'/Users/TLuu/.rbenv/versions/2.0.0-p247/lib'     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+couldn't understand kern.osversion `15.3.0'
+ld: warning: object file (/var/folders/bb/lg4kjhk5205ddvj06558rb0w0000gn/T//ccagw6Ty.o) was built for newer OSX version (10.11) than being linked (10.4)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_proc_arity; return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+--------------------
+
+have_func: checking for rb_integer_pack()... -------------------- no
+
+"gcc-4.2 -o conftest -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/TLuu/.rbenv/versions/2.0.0-p247/lib -L. -L'/Users/TLuu/.rbenv/versions/2.0.0-p247/lib'     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+couldn't understand kern.osversion `15.3.0'
+conftest.c: In function ‘t’:
+conftest.c:5: error: ‘rb_integer_pack’ undeclared (first use in this function)
+conftest.c:5: error: (Each undeclared identifier is reported only once
+conftest.c:5: error: for each function it appears in.)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_integer_pack; return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+"gcc-4.2 -o conftest -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/TLuu/.rbenv/versions/2.0.0-p247/lib -L. -L'/Users/TLuu/.rbenv/versions/2.0.0-p247/lib'     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+couldn't understand kern.osversion `15.3.0'
+ld: warning: object file (/var/folders/bb/lg4kjhk5205ddvj06558rb0w0000gn/T//ccIiri2q.o) was built for newer OSX version (10.11) than being linked (10.4)
+Undefined symbols for architecture x86_64:
+  "_rb_integer_pack", referenced from:
+      _t in ccIiri2q.o
+ld: symbol(s) not found for architecture x86_64
+collect2: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { rb_integer_pack(); return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_initialize()... -------------------- yes
+
+"gcc-4.2 -o conftest -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/TLuu/.rbenv/versions/2.0.0-p247/lib -L. -L'/Users/TLuu/.rbenv/versions/2.0.0-p247/lib'     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+couldn't understand kern.osversion `15.3.0'
+conftest.c: In function ‘t’:
+conftest.c:5: error: ‘sqlite3_initialize’ undeclared (first use in this function)
+conftest.c:5: error: (Each undeclared identifier is reported only once
+conftest.c:5: error: for each function it appears in.)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_initialize; return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+"gcc-4.2 -o conftest -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/TLuu/.rbenv/versions/2.0.0-p247/lib -L. -L'/Users/TLuu/.rbenv/versions/2.0.0-p247/lib'     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+couldn't understand kern.osversion `15.3.0'
+ld: warning: object file (/var/folders/bb/lg4kjhk5205ddvj06558rb0w0000gn/T//cc97Bs44.o) was built for newer OSX version (10.11) than being linked (10.4)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { sqlite3_initialize(); return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_backup_init()... -------------------- yes
+
+"gcc-4.2 -o conftest -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/TLuu/.rbenv/versions/2.0.0-p247/lib -L. -L'/Users/TLuu/.rbenv/versions/2.0.0-p247/lib'     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+couldn't understand kern.osversion `15.3.0'
+conftest.c: In function ‘t’:
+conftest.c:5: error: ‘sqlite3_backup_init’ undeclared (first use in this function)
+conftest.c:5: error: (Each undeclared identifier is reported only once
+conftest.c:5: error: for each function it appears in.)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_backup_init; return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+"gcc-4.2 -o conftest -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/TLuu/.rbenv/versions/2.0.0-p247/lib -L. -L'/Users/TLuu/.rbenv/versions/2.0.0-p247/lib'     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+couldn't understand kern.osversion `15.3.0'
+ld: warning: object file (/var/folders/bb/lg4kjhk5205ddvj06558rb0w0000gn/T//cchWOwzG.o) was built for newer OSX version (10.11) than being linked (10.4)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { sqlite3_backup_init(); return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_column_database_name()... -------------------- no
+
+"gcc-4.2 -o conftest -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/TLuu/.rbenv/versions/2.0.0-p247/lib -L. -L'/Users/TLuu/.rbenv/versions/2.0.0-p247/lib'     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+couldn't understand kern.osversion `15.3.0'
+conftest.c: In function ‘t’:
+conftest.c:5: error: ‘sqlite3_column_database_name’ undeclared (first use in this function)
+conftest.c:5: error: (Each undeclared identifier is reported only once
+conftest.c:5: error: for each function it appears in.)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_column_database_name; return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+"gcc-4.2 -o conftest -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/TLuu/.rbenv/versions/2.0.0-p247/lib -L. -L'/Users/TLuu/.rbenv/versions/2.0.0-p247/lib'     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+couldn't understand kern.osversion `15.3.0'
+ld: warning: object file (/var/folders/bb/lg4kjhk5205ddvj06558rb0w0000gn/T//cc5RGJ1K.o) was built for newer OSX version (10.11) than being linked (10.4)
+Undefined symbols for architecture x86_64:
+  "_sqlite3_column_database_name", referenced from:
+      _t in cc5RGJ1K.o
+ld: symbol(s) not found for architecture x86_64
+collect2: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { sqlite3_column_database_name(); return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_enable_load_extension()... -------------------- no
+
+"gcc-4.2 -o conftest -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/TLuu/.rbenv/versions/2.0.0-p247/lib -L. -L'/Users/TLuu/.rbenv/versions/2.0.0-p247/lib'     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+couldn't understand kern.osversion `15.3.0'
+conftest.c: In function ‘t’:
+conftest.c:5: error: ‘sqlite3_enable_load_extension’ undeclared (first use in this function)
+conftest.c:5: error: (Each undeclared identifier is reported only once
+conftest.c:5: error: for each function it appears in.)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_enable_load_extension; return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+"gcc-4.2 -o conftest -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/TLuu/.rbenv/versions/2.0.0-p247/lib -L. -L'/Users/TLuu/.rbenv/versions/2.0.0-p247/lib'     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+couldn't understand kern.osversion `15.3.0'
+ld: warning: object file (/var/folders/bb/lg4kjhk5205ddvj06558rb0w0000gn/T//cchHnfuY.o) was built for newer OSX version (10.11) than being linked (10.4)
+Undefined symbols for architecture x86_64:
+  "_sqlite3_enable_load_extension", referenced from:
+      _t in cchHnfuY.o
+ld: symbol(s) not found for architecture x86_64
+collect2: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { sqlite3_enable_load_extension(); return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_load_extension()... -------------------- no
+
+"gcc-4.2 -o conftest -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/TLuu/.rbenv/versions/2.0.0-p247/lib -L. -L'/Users/TLuu/.rbenv/versions/2.0.0-p247/lib'     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+couldn't understand kern.osversion `15.3.0'
+conftest.c: In function ‘t’:
+conftest.c:5: error: ‘sqlite3_load_extension’ undeclared (first use in this function)
+conftest.c:5: error: (Each undeclared identifier is reported only once
+conftest.c:5: error: for each function it appears in.)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_load_extension; return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+"gcc-4.2 -o conftest -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/TLuu/.rbenv/versions/2.0.0-p247/lib -L. -L'/Users/TLuu/.rbenv/versions/2.0.0-p247/lib'     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+couldn't understand kern.osversion `15.3.0'
+ld: warning: object file (/var/folders/bb/lg4kjhk5205ddvj06558rb0w0000gn/T//ccQkzGPN.o) was built for newer OSX version (10.11) than being linked (10.4)
+Undefined symbols for architecture x86_64:
+  "_sqlite3_load_extension", referenced from:
+      _t in ccQkzGPN.o
+ld: symbol(s) not found for architecture x86_64
+collect2: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { sqlite3_load_extension(); return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_open_v2()... -------------------- yes
+
+"gcc-4.2 -o conftest -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/TLuu/.rbenv/versions/2.0.0-p247/lib -L. -L'/Users/TLuu/.rbenv/versions/2.0.0-p247/lib'     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+couldn't understand kern.osversion `15.3.0'
+conftest.c: In function ‘t’:
+conftest.c:5: error: ‘sqlite3_open_v2’ undeclared (first use in this function)
+conftest.c:5: error: (Each undeclared identifier is reported only once
+conftest.c:5: error: for each function it appears in.)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_open_v2; return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+"gcc-4.2 -o conftest -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/TLuu/.rbenv/versions/2.0.0-p247/lib -L. -L'/Users/TLuu/.rbenv/versions/2.0.0-p247/lib'     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+couldn't understand kern.osversion `15.3.0'
+ld: warning: object file (/var/folders/bb/lg4kjhk5205ddvj06558rb0w0000gn/T//ccEsF0cs.o) was built for newer OSX version (10.11) than being linked (10.4)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { sqlite3_open_v2(); return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_prepare_v2()... -------------------- yes
+
+"gcc-4.2 -o conftest -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/TLuu/.rbenv/versions/2.0.0-p247/lib -L. -L'/Users/TLuu/.rbenv/versions/2.0.0-p247/lib'     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+couldn't understand kern.osversion `15.3.0'
+conftest.c: In function ‘t’:
+conftest.c:5: error: ‘sqlite3_prepare_v2’ undeclared (first use in this function)
+conftest.c:5: error: (Each undeclared identifier is reported only once
+conftest.c:5: error: for each function it appears in.)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_prepare_v2; return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+"gcc-4.2 -o conftest -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/TLuu/.rbenv/versions/2.0.0-p247/lib -L. -L'/Users/TLuu/.rbenv/versions/2.0.0-p247/lib'     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+couldn't understand kern.osversion `15.3.0'
+ld: warning: object file (/var/folders/bb/lg4kjhk5205ddvj06558rb0w0000gn/T//ccN5sey2.o) was built for newer OSX version (10.11) than being linked (10.4)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { sqlite3_prepare_v2(); return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+--------------------
+
+have_type: checking for sqlite3_int64 in sqlite3.h... -------------------- yes
+
+"gcc-4.2 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe   -c conftest.c"
+couldn't understand kern.osversion `15.3.0'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sqlite3.h>
+4: 
+5: /*top*/
+6: typedef sqlite3_int64 conftest_type;
+7: int conftestval[sizeof(conftest_type)?1:-1];
+/* end */
+
+--------------------
+
+have_type: checking for sqlite3_uint64 in sqlite3.h... -------------------- yes
+
+"gcc-4.2 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.4.0 -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/TLuu/.rbenv/versions/2.0.0-p247/include/ruby-2.0.0 -I. -I'/Users/TLuu/.rbenv/versions/2.0.0-p247/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe   -c conftest.c"
+couldn't understand kern.osversion `15.3.0'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sqlite3.h>
+4: 
+5: /*top*/
+6: typedef sqlite3_uint64 conftest_type;
+7: int conftestval[sizeof(conftest_type)?1:-1];
+/* end */
+
+--------------------
+
