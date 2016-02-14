@@ -112,6 +112,8 @@ GEM
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
     safe_yaml (1.0.4)
+    shoulda-matchers (3.1.1)
+      activesupport (>= 4.0.0)
     spring (1.6.3)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -138,6 +140,7 @@ DEPENDENCIES
   rails (= 4.2.4)
   rails-api
   rspec-rails (~> 3.0)
+  shoulda-matchers (~> 3.0)
   spring
   sqlite3
   webmock
