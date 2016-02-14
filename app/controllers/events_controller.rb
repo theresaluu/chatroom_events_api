@@ -4,6 +4,12 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     if @event.save
       render json: @event, content_type: 'application/json'
+    else
+      render json: {
+        status: 'error',
+        errors: @event.errors.full_messages,
+        content_type: 'application/json'
+      }, status: 422
     end
   end
   private

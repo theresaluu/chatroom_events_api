@@ -26,4 +26,14 @@ describe 'POST /events' do
     expect(response.message).to eq('OK')
   end
 
+  it 'returns a non-200, application/json, {"status": "error"}' do
+    params = {event: {:user => 'Tom', :action => 'salutes'}}
+    post '/events', params.to_json, set_headers
+
+    event = Event.last
+    expect(response.content_type).to eq('application/json')
+    expect(response.status).to eq(422)
+    expect(response_json['status']).to eq("error")
+  end
+
 end
