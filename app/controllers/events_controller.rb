@@ -1,10 +1,13 @@
 class EventsController < ApplicationController
+
   def create
-    @event = Event.new(event_params)
-    render json: @event, content_type: 'application/json'
+    @event = Event.create(event_params)
+    if @event
+      render json: @event, content_type: 'application/json'
+    end
   end
   private
   def event_params
-    params.permit(:date, :user, :type, :otheruser)
+    params.require(:event).permit(:date, :user, :action, :otheruser)
   end
 end

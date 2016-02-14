@@ -32,7 +32,7 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
   config.expect_with :rspec do |c|
-    c.xyntax = :expect
+    c.syntax = :expect
   end
 
   config.use_transactional_fixtures = false
