@@ -23,7 +23,7 @@ describe 'POST /events' do
     expect(response_json['action']).to eq('enter')
     expect(response.content_type).to eq('application/json')
     expect(response.status).to eq(200)
-    expect(response.message).to eq('OK')
+    expect(response_json['status']).to eq('ok')
   end
 
   it 'returns a non-200, application/json, {"status": "error"}' do

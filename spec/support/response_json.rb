@@ -1,6 +1,10 @@
 module ResponseJSON
   def response_json
-    JSON.parse(response.body)
+    if response.message == "OK"
+      JSON.parse(response.body).merge("status" => "ok")
+    else
+      JSON.parse(response.body)
+    end
   end
 end
 
