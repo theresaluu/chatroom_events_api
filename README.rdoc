@@ -10,5 +10,5 @@ in terminal:
   -bundle exec rake db:create
   -bundle exec rake db:migrate
 
-* To Run rSpec: bundle rake rspec
+* To Run rSpec: bundle exec rspec
 
