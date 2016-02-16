@@ -1,28 +1,14 @@
-== README
+== Chatroom API Events
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Rails 4 API only app to practice TDD with HTTP calls.
 
-Things you may want to cover:
+* To get this up and running:
+in terminal:
+  -git clone git@github.com:theresaluu/chatroom_events_api.git
+  -cd chatroom_events_api.git
+  -bundle install
+  -bundle exec rake db:create
+  -bundle exec rake db:migrate
 
-* Ruby version
+* To Run rSpec: bundle rake rspec
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
