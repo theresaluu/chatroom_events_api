@@ -12,6 +12,18 @@ class EventsController < ApplicationController
       }, status: 422
     end
   end
+
+  def clear
+    render json: {
+      status: 'ok',
+      content_type: 'application/json'
+    }, status: 200
+  end
+  #def range
+  #  @events = Event.all.where("date >= :from AND date <= :to", {from: params[:from], to: params[:to]})
+  #  render json: @events, content_type: 'application/json'
+  #end
+
   private
   def event_params
     params.require(:event).permit(:date, :user, :action, :otheruser) if params[:event]

@@ -1,13 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe 'posting an event', :type => :request do
+describe 'GET /events?from=DATE&to=DATE' do
+  it 'returns events with given date' do
+    skip
+    event_2016 = FactoryGirl.create(:event, :date => "2015­10­26T09:00:00Z")
 
-  it 'creates an event with a post to /events' do
-    post '/events', :event =>{:date => "1985­10­26T09:02:00Z", :user => "Doc", :type => "leave"}
+    get "/events", {:from => Time.now.iso8601, :to => (Time.now + 1.year).iso8601}
 
-    expect(response.content_type).to eq("application/json")
-
-    expect(response.status_message).to eq("OK")
+    event = Event.last
+    expect(response_json).to eq({ 'date' => event.date})
+    expect(event.user).to eq({ 'user' => event.user })
+    expect(event.action).to eq({'action' => event.action})
   end
 end
 
@@ -35,5 +38,14 @@ describe 'POST /events' do
     expect(response.status).to eq(422)
     expect(response_json['status']).to eq("error")
   end
+end
 
+describe 'POST /events/clear' do
+  it 'clears data store and returns {"status": "ok"}' do
+    post '/events/clear'
+
+    expect(response.content_type).to eq('application/json')
+    expect(response.status).to eq(200)
+    expect(response_json['status']).to eq("ok")
+  end
 end
