@@ -19,10 +19,10 @@ class EventsController < ApplicationController
       content_type: 'application/json'
     }, status: 200
   end
-  #def range
-  #  @events = Event.all.where("date >= :from AND date <= :to", {from: params[:from], to: params[:to]})
-  #  render json: @events, content_type: 'application/json'
-  #end
+
+  def range
+    @events = Event.all.where("date >= :from AND date <= :to", {from: params[:from], to: params[:to]})
+  end
 
   private
   def event_params
