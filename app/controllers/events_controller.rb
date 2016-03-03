@@ -21,11 +21,19 @@ class EventsController < ApplicationController
   end
 
   def range
-    @events = Event.all.where("date >= :from AND date <= :to", {from: params[:from], to: params[:to]})
+    @events = Event.where(date: date_conversion('from')..date_conversion('to'))
   end
 
   private
   def event_params
     params.require(:event).permit(:date, :user, :action, :otheruser) if params[:event]
+  end
+
+  def date_conversion(direction)
+    if direction == 'from'
+      Time.parse(params['from'] || params[:from])
+    else
+      Time.parse(params['to'] || params[:to])
+    end
   end
 end

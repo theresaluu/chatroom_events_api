@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   post '/events'        => "events#create"
   post '/events/clear'  => "events#clear"
-  get '/events'         => "events#range"
+  get '/events'         => "events#range", format: 'json'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
