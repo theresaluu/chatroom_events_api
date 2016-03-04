@@ -31,9 +31,9 @@ class EventsController < ApplicationController
 
   def date_conversion(direction)
     if direction == 'from'
-      Time.parse(params['from'] || params[:from])
+      Time.parse(params['from'] || params[:from]).utc
     else
-      Time.parse(params['to'] || params[:to])
+      Time.parse(params['to'] || params[:to]).utc
     end
   end
 end

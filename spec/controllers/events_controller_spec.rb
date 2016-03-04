@@ -37,7 +37,7 @@ RSpec.describe EventsController, type: :controller do
       before { expect(events.count).to eq 7 }
 
       it "returns actions occuring between the 'to' and 'from' interval" do
-        get '/events',
+        get :range,
           'from' => '2015-05-01-13T00:00Z',
           'to' => '2015-05-31-13T23:59Z',
           format: :json
