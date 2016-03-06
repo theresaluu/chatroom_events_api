@@ -1,3 +1,4 @@
+require 'pry'
 require 'rails_helper'
 
 RSpec.describe EventsController, type: :controller do
@@ -20,8 +21,6 @@ RSpec.describe EventsController, type: :controller do
     end
   end
   describe 'GET /events/summary?from=DATE&to=DATE&by=TIMEFRAME' do
-    render_views
-
     context 'start and end date params given' do
       let(:events) do
         dates = ['2015-01-14T10:00Z', '2015-01-25T10:00Z', '2015-02-14T08:00Z',
@@ -30,20 +29,21 @@ RSpec.describe EventsController, type: :controller do
         actions = []
 
         dates.each do |date|
-          actions << create(:event, :date => Time.parse(date).to_time.iso8601)
+          actions << FactoryGirl.create(:event, date: Time.parse(date))
         end
+        actions
       end
 
       before { expect(events.count).to eq 7 }
 
       it "returns actions occuring between the 'to' and 'from' interval" do
         get :range,
-          'from' => '2015-05-01-13T00:00Z',
-          'to' => '2015-05-31-13T23:59Z',
+          'from' => '2015-05-13T00:00Z',
+          'to' => '2015-06-13T23:59Z',
           format: :json
 
         expect(response).to render_template("events/range")
-        #expect(response.body).to match (/2015-05-14T10:22Z/)
+        #expect(response.body).to eq({'date' => '2015-05-14T10:22Z'})
       end
     end
   end

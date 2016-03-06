@@ -1,16 +1,25 @@
+require 'pry'
 require 'rails_helper'
 
 describe 'GET /events?from=DATE&to=DATE' do
   it 'returns events with given date' do
-    skip
-    event_2016 = FactoryGirl.create(:event, :date => "2015­10­26T09:00:00Z")
+    events = []
+    events << FactoryGirl.create(:event, date: Time.parse("2015-05-26T09:00Z"))
+    events << FactoryGirl.create(:event, date: Time.parse("2015-09-26T09:00Z"))
+    events << FactoryGirl.create(:event, date: Time.parse("2015-05-14T09:00Z"))
 
-    get "/events", {:from => Time.now.iso8601, :to => (Time.now + 1.year).iso8601}
+    get "/events", {'from' => Time.parse("2015-05-13T00:00Z"),'to' => Time.parse("2015-06-13T23:59Z")}
 
-    event = Event.last
-    expect(response_json).to eq({ 'date' => event.date})
-    expect(event.user).to eq({ 'user' => event.user })
-    expect(event.action).to eq({'action' => event.action})
+    binding.pry
+    #first event should be included
+    expect(response_json['events'][0]['date']).to eq(events[0].date.iso8601)
+    expect(response_json['events'][0]['user']).to eq(events[0].user)
+    expect(response_json['events'][0]['action']).to eq(events[0].action)
+
+    #third event should be included
+    expect(response_json['events'][1]['date']).to eq(events[2].date.iso8601)
+    expect(response_json['events'][1]['user']).to eq(events[2].user)
+    expect(response_json['events'][1]['action']).to eq(events[2].action)
   end
 end
 
