@@ -21,7 +21,9 @@ class EventsController < ApplicationController
   end
 
   def range
-    @events = Event.where(date: date_conversion('from')..date_conversion('to'))
+    @events = Event.where(date: date_conversion('from')..date_conversion('to')).sort_by do |event|
+      event['date']
+    end
   end
 
   private
