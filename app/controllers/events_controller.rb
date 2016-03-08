@@ -19,13 +19,23 @@ class EventsController < ApplicationController
       content_type: 'application/json'
     }, status: 200
   end
-  #def range
-  #  @events = Event.all.where("date >= :from AND date <= :to", {from: params[:from], to: params[:to]})
-  #  render json: @events, content_type: 'application/json'
-  #end
+
+  def range
+    @events = Event.where(date: date_conversion('from')..date_conversion('to')).sort_by do |event|
+      event['date']
+    end
+  end
 
   private
   def event_params
     params.require(:event).permit(:date, :user, :action, :otheruser) if params[:event]
+  end
+
+  def date_conversion(direction)
+    if direction == 'from'
+      Time.parse(params['from'] || params[:from]).utc
+    else
+      Time.parse(params['to'] || params[:to]).utc
+    end
   end
 end

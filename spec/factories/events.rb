@@ -2,8 +2,26 @@ require 'factory_girl_rails'
 
 FactoryGirl.define do
   factory :event do
-    date Time.now.to_time.iso8601
+    date Time.parse('2014-02-15T13:00Z')
     sequence(:user) {|n| "guest_#{n}"}
-    action "enter"
+    action ['enters']
+
+    factory :enters do
+      action 'enters'
+    end
+
+    factory :leaves do
+      action 'leaves'
+    end
+
+    factory :highfives do
+      action 'highfives'
+      otheruser 'Alicia'
+    end
+
+    factory :comments do
+      action 'conments'
+      message 'She could be a farmer in those clothes!'
+    end
   end
 end
