@@ -1,4 +1,3 @@
-require 'pry'
 require 'rails_helper'
 
 RSpec.describe EventsController, type: :controller do
@@ -21,6 +20,8 @@ RSpec.describe EventsController, type: :controller do
     end
   end
   describe 'GET /events/summary?from=DATE&to=DATE&by=TIMEFRAME' do
+    render_views
+
     context 'start and end date params given' do
       let(:events) do
         dates = ['2015-01-14T10:00Z', '2015-01-25T10:00Z', '2015-02-14T08:00Z',
