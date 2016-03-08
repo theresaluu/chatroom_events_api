@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :event do
     date Time.parse('2014-02-15T13:00Z')
     sequence(:user) {|n| "guest_#{n}"}
-    action ['enters', 'leaves', 'highfives', 'comments'].sample
+    action ['enters']
 
     factory :enters do
       action 'enters'
