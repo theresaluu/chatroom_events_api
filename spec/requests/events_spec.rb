@@ -6,7 +6,10 @@ describe 'GET /events?from=DATE&to=DATE' do
   let(:first_result) {response_json['events'][0]['date']}
   let(:second_result) {response_json['events'][1]['date']}
 
-  it 'returns events with given date' do
+  let(:no_results_from_date) {'2015-01-13T00:00Z'}
+  let(:no_results_to_date) {'2015-04-13T23:59Z'}
+
+  it 'returns events within given date range' do
     dates = ["2015-05-26T09:00Z", "2015-09-26T09:00Z", "2015-05-14T09:00Z"]
     events = []
     dates.each do |date|
@@ -29,6 +32,22 @@ describe 'GET /events?from=DATE&to=DATE' do
 
     #results in ascending date order
     expect(second_result).to be > first_result
+  end
+
+  it 'returns no results if none within given range' do
+    dates = ["2015-05-26T09:00Z", "2015-09-26T09:00Z", "2015-05-14T09:00Z",
+             "2015-06-26T19:00Z", "2015-07-26T09:30Z", "2015-10-14T08:00Z"]
+    events = []
+    dates.each do |date|
+      events << FactoryGirl.create(:event, date: date)
+    end
+
+    get "/events", {'from' => no_results_from_date,'to' => no_results_to_date}
+
+    expect(response).to render_template("events/range")
+    expect(response.content_type).to eq('application/json')
+    expect(response.status).to eq(200)
+    expect(response_json['events'].count).to eq(0)
   end
 end
 
