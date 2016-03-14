@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 describe 'GET /events?from=DATE&to=DATE' do
+  let(:events) {
+    dates = ["2015-05-26T09:00Z", "2015-09-26T09:00Z", "2015-05-14T09:00Z",
+             "2015-06-26T19:00Z", "2015-07-26T09:30Z", "2015-10-14T08:00Z"]
+    events = []
+    dates.each do |date|
+      events << FactoryGirl.create(:event, date: date)
+    end
+  }
   let(:from_date) {'2015-05-13T00:00Z'}
   let(:to_date) {'2015-06-13T23:59Z'}
   let(:first_result) {response_json['events'][0]['date']}
@@ -10,13 +18,9 @@ describe 'GET /events?from=DATE&to=DATE' do
   let(:no_results_to_date) {'2015-04-13T23:59Z'}
 
   context 'given a valid start and stop date' do
-    it 'returns events within given date range' do
-      dates = ["2015-05-26T09:00Z", "2015-09-26T09:00Z", "2015-05-14T09:00Z"]
-      events = []
-      dates.each do |date|
-        events << FactoryGirl.create(:event, date: date)
-      end
+    before { expect(events.count).to eq(6) }
 
+    it 'returns events within given date range' do
       get "/events", {'from' => from_date,'to' => to_date}
 
       expect(response).to render_template("events/range")
@@ -28,32 +32,42 @@ describe 'GET /events?from=DATE&to=DATE' do
 
       #second event should not be included
       expect(response_json['events'].count).to eq(2)
-      expect(first_result).to_not eq(events[1].date.iso8601)
-      expect(second_result).to_not eq(events[1].date.iso8601)
+      expect(first_result).to_not eq(Event.all[1].date.iso8601)
+      expect(second_result).to_not eq(Event.all[1].date.iso8601)
 
       #results in ascending date order
       expect(second_result).to be > first_result
     end
 
     it 'returns no results if none within given range' do
-      dates = ["2015-05-26T09:00Z", "2015-09-26T09:00Z", "2015-05-14T09:00Z",
-               "2015-06-26T19:00Z", "2015-07-26T09:30Z", "2015-10-14T08:00Z"]
-      events = []
-      dates.each do |date|
-        events << FactoryGirl.create(:event, date: date)
-      end
 
       get "/events", {'from' => no_results_from_date,'to' => no_results_to_date}
 
       expect(response).to render_template("events/range")
       expect(response.content_type).to eq('application/json')
       expect(response.status).to eq(200)
-      expect(response_json['events'].count).to eq(0)
+      expect(response_json.keys).to_not match(/events/)
     end
   end
 
-  context 'given a range with a start date that occurs after the end date' do
-    #TODO: (TL) spec to show error if dates are reversed
+  context 'given invalid "from" and "to" params' do
+    it 'returns a {"status" : "error"} when start date > stop date' do
+      get "/events", { 'from' => to_date,'to' => from_date }
+
+      expect(response.content_type).to eq('application/json')
+      expect(response.status).to eq(400)
+      expect(response_json['status']).to eq("error")
+      expect(response_json.keys).to_not match(/events/)
+    end
+
+    it 'returns a {"status" : "error"} when "to" param is missing' do
+      get "/events", {'from' => from_date}
+
+      expect(response.content_type).to eq('application/json')
+      expect(response.status).to eq(400)
+      expect(response_json['status']).to eq("error")
+      expect(response_json.keys).to_not match(/events/)
+    end
   end
 end
 
@@ -111,13 +125,13 @@ describe 'GET /events/summary?from=DATE&to=DATE&by=TIMEFRAME' do
     end
   end
 
-  context 'given invalid from and to params' do
+  context 'given invalid "from" and "to" params' do
     it 'returns a {"status" : "error"} when start date > stop date' do
       get "/events/summary",
         {'from' => to_date,'to' => from_date, 'by' => 'day'}
 
       expect(response.content_type).to eq('application/json')
-      expect(response.status).to eq(422)
+      expect(response.status).to eq(400)
       expect(response_json['status']).to eq("error")
       expect(response_json.keys).to_not match(/events/)
     end
@@ -127,7 +141,7 @@ describe 'GET /events/summary?from=DATE&to=DATE&by=TIMEFRAME' do
         {'from' => from_date, 'by' => 'day'}
 
       expect(response.content_type).to eq('application/json')
-      expect(response.status).to eq(422)
+      expect(response.status).to eq(400)
       expect(response_json['status']).to eq("error")
       expect(response_json.keys).to_not match(/events/)
     end
@@ -137,7 +151,7 @@ describe 'GET /events/summary?from=DATE&to=DATE&by=TIMEFRAME' do
         {'from' => from_date,'to' => to_date, 'by' => 'weeks'}
 
       expect(response.content_type).to eq('application/json')
-      expect(response.status).to eq(422)
+      expect(response.status).to eq(400)
       expect(response_json['status']).to eq("error")
       expect(response_json.keys).to_not match(/events/)
     end
@@ -164,7 +178,7 @@ describe 'POST /events' do
 
     event = Event.last
     expect(response.content_type).to eq('application/json')
-    expect(response.status).to eq(422)
+    expect(response.status).to eq(400)
     expect(response_json['status']).to eq("error")
   end
 end

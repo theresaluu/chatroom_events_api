@@ -9,7 +9,7 @@ class EventsController < ApplicationController
         status: 'error',
         errors: @event.errors.full_messages,
         content_type: 'application/json'
-      }, status: 422
+      }, status: 400
     end
   end
 
@@ -18,10 +18,17 @@ class EventsController < ApplicationController
   end
 
   def range
-    @events =
-      Event.where(date: date_type('from')..date_type('to')).sort_by do |event|
-        event['date']
-      end
+    if list_params
+      @events =
+        Event.where(date: date_type('from')..date_type('to')).sort_by do |event|
+          event['date']
+        end
+    else
+      render json: {
+        content_type: 'application/json',
+        status: 'error'
+      }, status: 400
+    end
   end
 
   def summary
@@ -33,7 +40,7 @@ class EventsController < ApplicationController
       render json: {
         content_type: 'application/json',
         status: 'error'
-      }, status: 422
+      }, status: 400
     end
   end
 
