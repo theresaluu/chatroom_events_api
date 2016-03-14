@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe 'GET /events?from=DATE&to=DATE' do
   let(:events) {
-    dates = ["2015-05-26T09:00Z", "2015-09-26T09:00Z", "2015-05-14T09:00Z"]
+    dates = ["2015-05-26T09:00Z", "2015-09-26T09:00Z", "2015-05-14T09:00Z",
+             "2015-06-26T19:00Z", "2015-07-26T09:30Z", "2015-10-14T08:00Z"]
     events = []
     dates.each do |date|
       events << FactoryGirl.create(:event, date: date)
@@ -17,7 +18,7 @@ describe 'GET /events?from=DATE&to=DATE' do
   let(:no_results_to_date) {'2015-04-13T23:59Z'}
 
   context 'given a valid start and stop date' do
-    before { expect(events.count).to eq(3) }
+    before { expect(events.count).to eq(6) }
 
     it 'returns events within given date range' do
       get "/events", {'from' => from_date,'to' => to_date}
@@ -39,23 +40,17 @@ describe 'GET /events?from=DATE&to=DATE' do
     end
 
     it 'returns no results if none within given range' do
-      dates = ["2015-05-26T09:00Z", "2015-09-26T09:00Z", "2015-05-14T09:00Z",
-               "2015-06-26T19:00Z", "2015-07-26T09:30Z", "2015-10-14T08:00Z"]
-      events = []
-      dates.each do |date|
-        events << FactoryGirl.create(:event, date: date)
-      end
 
       get "/events", {'from' => no_results_from_date,'to' => no_results_to_date}
 
       expect(response).to render_template("events/range")
       expect(response.content_type).to eq('application/json')
       expect(response.status).to eq(200)
-      expect(response_json['events'].count).to eq(0)
+      expect(response_json.keys).to_not match(/events/)
     end
   end
 
-  context 'given a range with a start date that occurs after the end date' do
+  context 'given invalid "from" and "to" params' do
     #TODO: (TL) spec to show error if dates are reversed
   end
 end
@@ -114,7 +109,7 @@ describe 'GET /events/summary?from=DATE&to=DATE&by=TIMEFRAME' do
     end
   end
 
-  context 'given invalid from and to params' do
+  context 'given invalid "from" and "to" params' do
     it 'returns a {"status" : "error"} when start date > stop date' do
       get "/events/summary",
         {'from' => to_date,'to' => from_date, 'by' => 'day'}
