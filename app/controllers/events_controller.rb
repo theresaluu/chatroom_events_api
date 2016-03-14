@@ -3,8 +3,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      data = { 'status' => 'ok'}
-      render json: data, content_type: 'application/json'
+      render json: { 'status' => 'ok' }
     else
       render json: {
         status: 'error',
@@ -15,10 +14,7 @@ class EventsController < ApplicationController
   end
 
   def clear
-    render json: {
-      status: 'ok',
-      content_type: 'application/json'
-    }, status: 200
+    render json: { status: 'ok' }
   end
 
   def range
