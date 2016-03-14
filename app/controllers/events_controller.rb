@@ -28,7 +28,9 @@ class EventsController < ApplicationController
   end
 
   def summary
-    @summaries = []
+    event_collection = Hash.new()
+    event_collection['events'] = event_actions(event_dates(params['by']))
+    @events = event_collection['events']
   end
 
   private
@@ -38,7 +40,7 @@ class EventsController < ApplicationController
     end
   end
 
-  def date_conversion(direction)
+  def date_type(direction)
     if direction == 'from'
       Time.parse(params['from'] || params[:from]).utc
     else
@@ -46,17 +48,34 @@ class EventsController < ApplicationController
     end
   end
 
+  def rolled_up_range(timeframe, type)
+    case timeframe
+    when 'minute'
+      round_down_seconds(date_type(type))
+    when 'hour'
+      round_down_minutes(date_type(type))
+    when 'day'
+      round_down_hours(date_type(type))
+    end
+  end
+
+  def collect_rolledup(timeframe, list, action)
+    case timeframe
+    when 'minute'
+      list << round_down_seconds(action.date).iso8601
+    when 'hour'
+      list << round_down_minutes(action.date).iso8601
+    when 'day'
+      list << round_down_hours(action.date).iso8601
+    end
+  end
+
   def event_dates(timeframe)
     event_dates = []
-    Event.all.each do |event|
-      case timeframe
-      when 'minute'
-        event_dates << round_down_seconds(event.date).iso8601
-      when 'hour'
-        event_dates << round_down_minutes(event.date).iso8601
-      when 'day'
-        event_dates << round_down_minutes(event.date).iso8601
-      end
+    from = rolled_up_range(timeframe, 'from')
+    to = rolled_up_range(timeframe, 'to')
+    Event.where(date: from..to).each do |event|
+      collect_rolledup(timeframe, event_dates, event)
     end
     event_dates.uniq.sort_by do |date|
       date
@@ -75,21 +94,31 @@ class EventsController < ApplicationController
     round_down_minutes(date) - date.strftime('%H').to_i.hours
   end
 
+  def collect_events(date)
+    event_actions = []
+    timeframe = params['by']
+    Event.all.each do |event|
+      if (timeframe == 'minute') && round_down_seconds(event.date) == date
+        event_actions << event.action
+      elsif (timeframe == 'hour') && round_down_minutes(event.date) == date
+        event_actions << event.action
+      elsif (timeframe == 'day') && round_down_hours(event.date) == date
+        event_actions << event.action
+      end
+    end
+    event_actions
+  end
+
   def event_actions(event_dates)
     event_list = []
     event_dates.each do |date|
       counts = Hash.new(0)
       counts[:date] = date
-      event_actions = []
-      Event.all.each do |event|
-        if event.date == date
-          event_actions << event.action
-        end
-      end
-      event_actions.each do |event|
+      collect_events(date).each do |event|
         counts[event] += 1
       end
       event_list << counts
     end
+    event_list
   end
 end

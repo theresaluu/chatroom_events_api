@@ -81,18 +81,18 @@ describe 'GET /events/summary?from=DATE&to=DATE&by=TIMEFRAME' do
     end
 
     let(:from_date) {'2015-05-25T01:00Z'}
-    let(:to_date) {'2015-05-26T12:00Z'}
+    let(:to_date) {'2015-05-27T12:00Z'}
 
     before { expect(events.count).to eq(6) }
 
-    #TODO: (TL) spec to show types and quantity of events for dates w/in range
     it 'returns summary of events within given date range' do
-      get "/events/summary", {'from' => from_date,'to' => to_date}
+      get "/events/summary", {'from' => from_date,'to' => to_date, 'by' => 'day'}
 
       expect(response).to render_template("events/summary")
       expect(response.content_type).to eq('application/json')
       expect(response.status).to eq(200)
-      expect(response_json['events']).to eq(3)
+      expect(response_json['events'].count).to eq(2)
+      expect(response_json['events'][0].keys.include?('highfives'))
     end
 
     #TODO: (TL) spec to show empty results if none w/in range
