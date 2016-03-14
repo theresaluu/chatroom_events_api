@@ -58,31 +58,31 @@ describe 'GET /events?from=DATE&to=DATE' do
 end
 
 describe 'GET /events/summary?from=DATE&to=DATE&by=TIMEFRAME' do
-  context 'given a valid start and stop date' do
-    let(:events) do
-      chatroom_haps = []
-      chatroom_haps << FactoryGirl.create(:enters,
-                                          date: "2015-05-26T09:00Z",
-                                         user: "DJ Tanner")
-      chatroom_haps << FactoryGirl.create(:leaves,
-                                          date: "2015-05-26T10:45Z",
-                                          user: "DJ Tanner")
-      chatroom_haps << FactoryGirl.create(:highfives,
-                                          date: "2015-05-25T09:00Z")
-      chatroom_haps << FactoryGirl.create(:comments,
-                                          date: "2015-05-29T01:00Z")
-      chatroom_haps << FactoryGirl.create(:enters,
-                                          date: "2015-05-16T09:00Z",
-                                          user: "Uncle Jesse")
-      chatroom_haps << FactoryGirl.create(:leaves,
-                                          date: "2015-05-16T10:45Z",
-                                          user: "Uncle Jesse")
-      chatroom_haps
-    end
+  let(:events) do
+    chatroom_haps = []
+    chatroom_haps << FactoryGirl.create(:enters,
+                                        date: "2015-05-26T09:00Z",
+                                       user: "DJ Tanner")
+    chatroom_haps << FactoryGirl.create(:leaves,
+                                        date: "2015-05-26T10:45Z",
+                                        user: "DJ Tanner")
+    chatroom_haps << FactoryGirl.create(:highfives,
+                                        date: "2015-05-25T09:00Z")
+    chatroom_haps << FactoryGirl.create(:comments,
+                                        date: "2015-05-29T01:00Z")
+    chatroom_haps << FactoryGirl.create(:enters,
+                                        date: "2015-05-16T09:00Z",
+                                        user: "Uncle Jesse")
+    chatroom_haps << FactoryGirl.create(:leaves,
+                                        date: "2015-05-16T10:45Z",
+                                        user: "Uncle Jesse")
+    chatroom_haps
+  end
 
-    let(:from_date) {'2015-05-25T01:00Z'}
-    let(:to_date) {'2015-05-27T12:00Z'}
+  let(:from_date) {'2015-05-25T01:00Z'}
+  let(:to_date) {'2015-05-27T12:00Z'}
 
+  context 'given a valid start/stop date and timeframe' do
     before { expect(events.count).to eq(6) }
 
     it 'returns summary of events within given date range' do
@@ -96,12 +96,12 @@ describe 'GET /events/summary?from=DATE&to=DATE&by=TIMEFRAME' do
       expect(response_json['events'][0].keys.include?('highfives'))
     end
 
-    it 'returns no results of none of events are  within given date range' do
+    it 'returns no results if no events are within given date range' do
       get "/events/summary",
         {
         'from' => (from_date.to_time + 1.year).to_s,
          'to' => (to_date.to_time + 1.year).to_s,
-         'by' => 'minutes'
+         'by' => 'minute'
       }
 
       expect(response).to render_template("events/summary")
@@ -111,8 +111,36 @@ describe 'GET /events/summary?from=DATE&to=DATE&by=TIMEFRAME' do
     end
   end
 
-  context 'given a range with a start date that occurs after the end date' do
-    #TODO: (TL) spec to show error if dates are reversed
+  context 'given invalid from and to params' do
+    it 'returns a {"status" : "error"} when start date > stop date' do
+      get "/events/summary",
+        {'from' => to_date,'to' => from_date, 'by' => 'day'}
+
+      expect(response.content_type).to eq('application/json')
+      expect(response.status).to eq(422)
+      expect(response_json['status']).to eq("error")
+      expect(response_json.keys).to_not match(/events/)
+    end
+
+    it 'returns a {"status" : "error"} when "to" param is missing' do
+      get "/events/summary",
+        {'from' => from_date, 'by' => 'day'}
+
+      expect(response.content_type).to eq('application/json')
+      expect(response.status).to eq(422)
+      expect(response_json['status']).to eq("error")
+      expect(response_json.keys).to_not match(/events/)
+    end
+
+    it 'returns a {"status" :"error"} when given an invalid "by" param' do
+      get "/events/summary",
+        {'from' => from_date,'to' => to_date, 'by' => 'weeks'}
+
+      expect(response.content_type).to eq('application/json')
+      expect(response.status).to eq(422)
+      expect(response_json['status']).to eq("error")
+      expect(response_json.keys).to_not match(/events/)
+    end
   end
 end
 describe 'POST /events' do
