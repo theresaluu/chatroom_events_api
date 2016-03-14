@@ -184,11 +184,37 @@ describe 'POST /events' do
 end
 
 describe 'POST /events/clear' do
-  it 'clears data store and returns {"status": "ok"}' do
-    post '/events/clear'
+  let(:events) do
+    chatroom_haps = []
+    chatroom_haps << FactoryGirl.create(:enters,
+                                        date: "2015-05-26T09:00Z",
+                                       user: "Urkel")
+    chatroom_haps << FactoryGirl.create(:leaves,
+                                        date: "2015-05-26T10:45Z",
+                                        user: "Urkel")
+    chatroom_haps << FactoryGirl.create(:highfives,
+                                        date: "2015-05-25T09:00Z")
+    chatroom_haps << FactoryGirl.create(:comments,
+                                        date: "2015-05-29T01:00Z")
+    chatroom_haps << FactoryGirl.create(:enters,
+                                        date: "2015-05-16T09:00Z",
+                                        user: "Mr. Winslow")
+    chatroom_haps << FactoryGirl.create(:leaves,
+                                        date: "2015-05-16T10:45Z",
+                                        user: "Mr. Winslow")
+    chatroom_haps
+  end
 
-    expect(response.content_type).to eq('application/json')
-    expect(response.status).to eq(200)
-    expect(response_json['status']).to eq("ok")
+  context 'given a valid start/stop date and timeframe' do
+    before { expect(events.count).to eq(6) }
+
+    it 'clears data store and returns {"status": "ok"}' do
+      post '/events/clear'
+
+      expect(response.content_type).to eq('application/json')
+      expect(response.status).to eq(200)
+      expect(response_json['status']).to eq("ok")
+      expect(Event.all.count).to eq(0)
+    end
   end
 end

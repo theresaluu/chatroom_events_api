@@ -14,6 +14,7 @@ class EventsController < ApplicationController
   end
 
   def clear
+    Event.delete_all
     render json: { status: 'ok' }
   end
 
