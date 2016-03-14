@@ -25,9 +25,16 @@ class EventsController < ApplicationController
   end
 
   def summary
-    event_collection = Hash.new()
-    event_collection['events'] = event_actions(event_dates(params['by']))
-    @events = event_collection['events']
+    if summary_params
+      event_collection = Hash.new()
+      event_collection['events'] = event_actions(event_dates(params['by']))
+      @events = event_collection['events']
+    else
+      render json: {
+        content_type: 'application/json',
+        status: 'error'
+      }, status: 422
+    end
   end
 
   private
@@ -35,6 +42,16 @@ class EventsController < ApplicationController
     if params[:event]
       params.require(:event).permit(:date, :user, :action, :otheruser)
     end
+  end
+
+  def list_params
+    params[:from] && params[:to] && params[:to] > params[:from]
+  end
+
+  def summary_params
+    list_params &&
+      params[:by] &&
+      ['minute', 'hour', 'day'].include?(params[:by])
   end
 
   def date_type(direction)
