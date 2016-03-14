@@ -1,4 +1,4 @@
-== Chatroom API Events
+# Chatroom API Events
 
 A Rails 4 API only app to practice TDD with HTTP calls.
 
