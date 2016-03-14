@@ -86,7 +86,8 @@ describe 'GET /events/summary?from=DATE&to=DATE&by=TIMEFRAME' do
     before { expect(events.count).to eq(6) }
 
     it 'returns summary of events within given date range' do
-      get "/events/summary", {'from' => from_date,'to' => to_date, 'by' => 'day'}
+      get "/events/summary",
+        {'from' => from_date,'to' => to_date, 'by' => 'day'}
 
       expect(response).to render_template("events/summary")
       expect(response.content_type).to eq('application/json')
@@ -95,8 +96,18 @@ describe 'GET /events/summary?from=DATE&to=DATE&by=TIMEFRAME' do
       expect(response_json['events'][0].keys.include?('highfives'))
     end
 
-    #TODO: (TL) spec to show empty results if none w/in range
     it 'returns no results of none of events are  within given date range' do
+      get "/events/summary",
+        {
+        'from' => (from_date.to_time + 1.year).to_s,
+         'to' => (to_date.to_time + 1.year).to_s,
+         'by' => 'minutes'
+      }
+
+      expect(response).to render_template("events/summary")
+      expect(response.content_type).to eq('application/json')
+      expect(response.status).to eq(200)
+      expect(response_json['events'].count).to eq(0)
     end
   end
 
