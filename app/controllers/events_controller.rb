@@ -21,9 +21,10 @@ class EventsController < ApplicationController
   end
 
   def range
-    @events = Event.where(date: date_conversion('from')..date_conversion('to')).sort_by do |event|
-      event['date']
-    end
+    @events =
+      Event.where(date: date_type('from')..date_type('to')).sort_by do |event|
+        event['date']
+      end
   end
 
   def summary
@@ -32,7 +33,9 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:date, :user, :action, :otheruser) if params[:event]
+    if params[:event]
+      params.require(:event).permit(:date, :user, :action, :otheruser)
+    end
   end
 
   def date_conversion(direction)
