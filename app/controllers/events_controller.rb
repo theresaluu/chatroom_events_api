@@ -9,7 +9,7 @@ class EventsController < ApplicationController
         status: 'error',
         errors: @event.errors.full_messages,
         content_type: 'application/json'
-      }, status: 422
+      }, status: 400
     end
   end
 
@@ -27,7 +27,7 @@ class EventsController < ApplicationController
       render json: {
         content_type: 'application/json',
         status: 'error'
-      }, status: 422
+      }, status: 400
     end
   end
 
@@ -40,7 +40,7 @@ class EventsController < ApplicationController
       render json: {
         content_type: 'application/json',
         status: 'error'
-      }, status: 422
+      }, status: 400
     end
   end
 

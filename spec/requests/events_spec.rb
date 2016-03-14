@@ -55,7 +55,7 @@ describe 'GET /events?from=DATE&to=DATE' do
       get "/events", { 'from' => to_date,'to' => from_date }
 
       expect(response.content_type).to eq('application/json')
-      expect(response.status).to eq(422)
+      expect(response.status).to eq(400)
       expect(response_json['status']).to eq("error")
       expect(response_json.keys).to_not match(/events/)
     end
@@ -64,7 +64,7 @@ describe 'GET /events?from=DATE&to=DATE' do
       get "/events", {'from' => from_date}
 
       expect(response.content_type).to eq('application/json')
-      expect(response.status).to eq(422)
+      expect(response.status).to eq(400)
       expect(response_json['status']).to eq("error")
       expect(response_json.keys).to_not match(/events/)
     end
@@ -131,7 +131,7 @@ describe 'GET /events/summary?from=DATE&to=DATE&by=TIMEFRAME' do
         {'from' => to_date,'to' => from_date, 'by' => 'day'}
 
       expect(response.content_type).to eq('application/json')
-      expect(response.status).to eq(422)
+      expect(response.status).to eq(400)
       expect(response_json['status']).to eq("error")
       expect(response_json.keys).to_not match(/events/)
     end
@@ -141,7 +141,7 @@ describe 'GET /events/summary?from=DATE&to=DATE&by=TIMEFRAME' do
         {'from' => from_date, 'by' => 'day'}
 
       expect(response.content_type).to eq('application/json')
-      expect(response.status).to eq(422)
+      expect(response.status).to eq(400)
       expect(response_json['status']).to eq("error")
       expect(response_json.keys).to_not match(/events/)
     end
@@ -151,7 +151,7 @@ describe 'GET /events/summary?from=DATE&to=DATE&by=TIMEFRAME' do
         {'from' => from_date,'to' => to_date, 'by' => 'weeks'}
 
       expect(response.content_type).to eq('application/json')
-      expect(response.status).to eq(422)
+      expect(response.status).to eq(400)
       expect(response_json['status']).to eq("error")
       expect(response_json.keys).to_not match(/events/)
     end
@@ -178,7 +178,7 @@ describe 'POST /events' do
 
     event = Event.last
     expect(response.content_type).to eq('application/json')
-    expect(response.status).to eq(422)
+    expect(response.status).to eq(400)
     expect(response_json['status']).to eq("error")
   end
 end
