@@ -157,6 +157,7 @@ describe 'GET /events/summary?from=DATE&to=DATE&by=TIMEFRAME' do
     end
   end
 end
+
 describe 'POST /events' do
   it 'saves event date, action, and user' do
     date = Time.now
