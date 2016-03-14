@@ -121,13 +121,13 @@ describe 'POST /events' do
     params = {event: {:date => date, :user => 'Dennis', :action => 'enters'}}
     post '/events', params.to_json, set_headers
 
-    event = Event.last
-    expect(response_json['id']).to eq(event.id)
-    expect(response_json['user']).to eq('Dennis')
-    expect(response_json['action']).to eq('enters')
     expect(response.content_type).to eq('application/json')
     expect(response.status).to eq(200)
     expect(response_json['status']).to eq('ok')
+
+    event = Event.last
+    expect(event.user).to eq('Dennis')
+    expect(event.action).to eq('enters')
   end
 
   it 'returns a non-200, application/json, {"status": "error"}' do

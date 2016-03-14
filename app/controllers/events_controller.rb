@@ -3,7 +3,8 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      render json: @event, content_type: 'application/json'
+      data = { 'status' => 'ok'}
+      render json: data, content_type: 'application/json'
     else
       render json: {
         status: 'error',
