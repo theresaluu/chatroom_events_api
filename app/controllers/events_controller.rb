@@ -40,7 +40,7 @@ class EventsController < ApplicationController
   private
   def event_params
     if params[:event]
-      params.require(:event).permit(:date, :user, :action, :otheruser)
+      params.require(:event).permit(:date, :user, :action)
     end
   end
 
