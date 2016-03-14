@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 describe 'GET /events?from=DATE&to=DATE' do
+  let(:events) {
+    dates = ["2015-05-26T09:00Z", "2015-09-26T09:00Z", "2015-05-14T09:00Z"]
+    events = []
+    dates.each do |date|
+      events << FactoryGirl.create(:event, date: date)
+    end
+  }
   let(:from_date) {'2015-05-13T00:00Z'}
   let(:to_date) {'2015-06-13T23:59Z'}
   let(:first_result) {response_json['events'][0]['date']}
@@ -10,13 +17,9 @@ describe 'GET /events?from=DATE&to=DATE' do
   let(:no_results_to_date) {'2015-04-13T23:59Z'}
 
   context 'given a valid start and stop date' do
-    it 'returns events within given date range' do
-      dates = ["2015-05-26T09:00Z", "2015-09-26T09:00Z", "2015-05-14T09:00Z"]
-      events = []
-      dates.each do |date|
-        events << FactoryGirl.create(:event, date: date)
-      end
+    before { expect(events.count).to eq(3) }
 
+    it 'returns events within given date range' do
       get "/events", {'from' => from_date,'to' => to_date}
 
       expect(response).to render_template("events/range")
@@ -28,8 +31,8 @@ describe 'GET /events?from=DATE&to=DATE' do
 
       #second event should not be included
       expect(response_json['events'].count).to eq(2)
-      expect(first_result).to_not eq(events[1].date.iso8601)
-      expect(second_result).to_not eq(events[1].date.iso8601)
+      expect(first_result).to_not eq(Event.all[1].date.iso8601)
+      expect(second_result).to_not eq(Event.all[1].date.iso8601)
 
       #results in ascending date order
       expect(second_result).to be > first_result
