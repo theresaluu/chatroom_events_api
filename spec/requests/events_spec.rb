@@ -51,7 +51,23 @@ describe 'GET /events?from=DATE&to=DATE' do
   end
 
   context 'given invalid "from" and "to" params' do
-    #TODO: (TL) spec to show error if dates are reversed
+    it 'returns a {"status" : "error"} when start date > stop date' do
+      get "/events", { 'from' => to_date,'to' => from_date }
+
+      expect(response.content_type).to eq('application/json')
+      expect(response.status).to eq(422)
+      expect(response_json['status']).to eq("error")
+      expect(response_json.keys).to_not match(/events/)
+    end
+
+    it 'returns a {"status" : "error"} when "to" param is missing' do
+      get "/events", {'from' => from_date}
+
+      expect(response.content_type).to eq('application/json')
+      expect(response.status).to eq(422)
+      expect(response_json['status']).to eq("error")
+      expect(response_json.keys).to_not match(/events/)
+    end
   end
 end
 
